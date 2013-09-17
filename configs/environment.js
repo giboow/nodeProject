@@ -6,11 +6,10 @@ module.exports = function(app, express){
     //all
     app.configure(function(){
         app.set('port', process.env.PORT || 3000);
-        app.set('views', __dirname + '/views');
 
         app.engine('html', consolidate.swig);
         app.set('view engine', 'html');
-        app.set('views', __dirname + '/views');
+        app.set('views', __dirname + '/../views');
         app.engine('.html', consolidate.swig);
 
         app.use(express.favicon());
@@ -26,7 +25,3 @@ module.exports = function(app, express){
       app.use(express.errorHandler());
     });
 };
-
-
-
-/* Tell swig where to look for templates when one extends another. */

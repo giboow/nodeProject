@@ -1,4 +1,4 @@
-var index = require('./routes/index');
+var index = require('../routes/index');
 
 
 module.exports = function(app) {
