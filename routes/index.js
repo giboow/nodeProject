@@ -1,16 +1,22 @@
+module.exports = function(app) {
+    app.get('/', function(req, res, next){
+        index(req, res, next, app);
+    });
+}
 
-/*
- * GET home page.
- */
+function index (req, res, next, app){
+     var user = require('../models/user');
+     user.getRecent(app, function(res, rows, field) {
+         console.log(field);
+     });
 
-exports.index = function(req, res){
-  res.render(
-      'index',
-      {
-          title: 'Express',
-          foo: {
-              bar: "test"
-          }
-      }
-  );
+     res.render(
+         'index',
+         {
+             title: 'Express',
+             foo: {
+                 bar: "test"
+             }
+         }
+     );
 };

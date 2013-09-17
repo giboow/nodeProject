@@ -1,17 +1,14 @@
+var config = require('./configs/config.js');
+global.config = config;
 
-/**
- * Module dependencies.
- */
 
-var config = require('./configs/config.js'),
-    module = require('./configs/module.js'),
-    express = require('express')
+var express = require('express')
     http = require('http');
 
 var app = express();
+app.set('config', config);
 
-global.app = app;
-global.config = config;
+module = require('./configs/module.js')(app);
 
 require('./configs/environment.js')(app, express);
 require('./configs/routes.js')(app);

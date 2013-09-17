@@ -1,6 +1,7 @@
-var index = require('../routes/index');
-
-
 module.exports = function(app) {
-    app.get('/', index.index);
+    var index = require('../routes/index')(app);
 };
+/*
+    //return;
+    app.get('/', index.index);
+*/
