@@ -1,3 +1,6 @@
+/**
+ * Environment initialisation
+ */
 module.exports = function(app, express){
     var path = require('path');
     var consolidate = require('consolidate');

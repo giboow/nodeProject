@@ -6,17 +6,19 @@ module.exports = function(app) {
 
 function index (req, res, next, app){
      var user = require('../models/user');
-     user.getRecent(app, function(res, rows, field) {
-         console.log(field);
-     });
-
-     res.render(
-         'index',
-         {
-             title: 'Express',
-             foo: {
-                 bar: "test"
+     var users = null;
+     user.getRecent(app, function(err, rows, field) {
+         users = rows;
+         console.log(users);
+         res.render(
+             'index',
+             {
+                 title: 'Express',
+                 foo: {
+                     bar: "test"
+                 },
+                 'users' : users
              }
-         }
-     );
+         );
+     });
 };
