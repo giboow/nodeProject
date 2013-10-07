@@ -1,12 +1,13 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
     <head>
         <title>{% block title %}Test{% endblock %}</title>
         {% block headCSS %}
         <link rel="stylesheet" href="/css/style.css">
         {% endblock %}
         {% block headJS %}
-        <link rel="stylesheet" href="/js/main.js">
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/lib/angular/angular.js"></script>
         {% endblock %}
     </head>
     <body>
